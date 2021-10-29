@@ -1,5 +1,13 @@
 package com.datamitest;
 
+import java.util.Arrays; 
+import com.datami.smi.SdStateChangeListener; 
+import com.datami.smi.SmiResult; 
+import com.datami.smi.SmiVpnSdk; 
+import com.datami.smi.SmiSdk; 
+import com.datami.smisdk_plugin.SmiSdkReactModule; 
+import com.datami.smisdk_plugin.SmiSdkReactPackage; 
+import com.datami.smi.internal.MessagingType; 
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
@@ -31,7 +39,7 @@ import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
 
-public class MainApplication extends Application implements ReactApplication {
+public class MainApplication extends Application implements SdStateChangeListener,  ReactApplication {
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(
     new BasePackageList().getPackageList()
   );
@@ -46,7 +54,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
-      return packages;
+      packages.add(new SmiSdkReactPackage());return packages;
     }
 
     @Override
@@ -86,6 +94,16 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+boolean dmiUserMessaging = getResources().getBoolean(R.bool.smisdk_show_messaging);  
+boolean dmiStartVpn = getResources().getBoolean(R.bool.smisdk_start_vpn);  
+boolean dmiControlledVpn = getResources().getBoolean(R.bool.smisdk_controlled_vpn);  
+MessagingType dmiMessaging = MessagingType.NONE;   
+if(dmiUserMessaging){ 
+   dmiMessaging = MessagingType.BOTH; 
+ }
+
+SmiVpnSdk.initSponsoredData(getResources().getString(R.string.smisdk_apikey), 
+this, R.mipmap.ic_launcher, dmiMessaging, dmiStartVpn, 0, dmiControlledVpn);
     SoLoader.init(this, /* native exopackage */ false);
 
     if (!BuildConfig.DEBUG) {
@@ -125,4 +143,8 @@ public class MainApplication extends Application implements ReactApplication {
       }
     }
   }
+@Override 
+ public void onChange(SmiResult smiResult) {
+ SmiSdkReactModule.setSmiResultToModule(smiResult);
+}
 }

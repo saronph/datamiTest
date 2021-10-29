@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">datamiTest</string>
-    <string name="smisdk_apikey"></string>
+    <string name="smisdk_apikey">ak-f6523ef3-ac22-493f-8371-c9877db3b7d5</string>
     <bool name="smisdk_controlled_vpn">false</bool>
     <bool name="smisdk_start_vpn">true</bool>
     <bool name="smisdk_show_messaging">false</bool>

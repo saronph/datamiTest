@@ -31,10 +31,6 @@ allprojects {
             url("$rootDir/../node_modules/jsc-android/dist")
         }
 
-        maven {
-            url 'https://s3.amazonaws.com/sdk-ga-releases.cloudmi.datami.com/android/mvn/smisdk/'
-        }
-
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }

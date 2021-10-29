@@ -6949,6 +6949,10 @@ react-native-screens@~3.0.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.0.0.tgz#ee4c2d69abf7411603868b57214feec5e8f637fa"
   integrity sha512-35II5oxTaVp3OP8y0eLPOPpQkxG4fRKQ+dL1YSE1we5kCZFOU0l/Rn0T79HbyUu1LPwUZr6lZupPs0ULnRyMuQ==
 
+"react-native-smisdk-plugin@https://bitbucket.org/datami/sd-react-native-smisdk-plugin.git#vpn_rn62":
+  version "1.2.4"
+  resolved "https://bitbucket.org/datami/sd-react-native-smisdk-plugin.git#1b6af2ddb9f549e427b6d955498109f52f10bf9c"
+
 react-native-unimodules@~0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/react-native-unimodules/-/react-native-unimodules-0.13.3.tgz#544a3840683967ca6a2e8b9841d0524236eb6288"
