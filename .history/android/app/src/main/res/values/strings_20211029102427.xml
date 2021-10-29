@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">datamiTest</string>
-<bool name="smisdk_controlled_vpn">false</bool>
-<bool name="smisdk_start_vpn">true</bool>
-<bool name="smisdk_show_messaging">true</bool>
-<string name="smisdk_apikey"></string>
-</resources>
