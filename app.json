@@ -1,0 +1,12 @@
+{
+  "name": "datamiTest",
+  "displayName": "datamiTest",
+  "expo": {
+    "name": "datamiTest",
+    "slug": "datamiTest",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
